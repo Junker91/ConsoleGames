@@ -36,7 +36,7 @@ namespace GameCollection.NumberGuessingGame.View {
             }while(!checkLow || !checkHigh);  
 
             do{
-                Console.WriteLine("Enter the amount of tries you want to be");
+                Console.WriteLine("Enter the amount of tries you want to have");
                 checkLives = TryCatch(ref lives);
             }while(!checkLives);
 
@@ -47,14 +47,14 @@ namespace GameCollection.NumberGuessingGame.View {
         private void SinglePlayerGame() {
             int guess;
 
-            Console.WriteLine("Let the game begin!!. You have {0} lives to guess the number and an interval {1} ", _controller.PlayerLives(), _controller.UserInterval());
+            Console.WriteLine("Let the game begin!!. {2} have {0} lives to guess the number and an interval {1} ", _controller.PlayerLives(), _controller.UserInterval()), _controller.PlayerName();
 
             do {
                 Console.WriteLine("Take a guess:");
                 guess = int.Parse(Console.ReadLine());
 
                 do{
-                    if (_controller.UserGuessValid(guess))
+                    if (!_controller.UserGuessValid(guess))
                         Console.WriteLine("Invalid number");
 
                 }while(!_controller.UserGuessValid(guess));
@@ -64,12 +64,14 @@ namespace GameCollection.NumberGuessingGame.View {
                 else if (_controller.UserGuessPosition(guess) == -1)
                     Console.WriteLine("Guess must be higher than {0}", guess);
 
+                Console.WriteLine("{1} have {0} lives left", _controller.PlayerLives()), _controller.PlayerName();
+
             } while (_controller.IsUserStillAlive() && _controller.UserGuessPosition(guess) != 0);
 
             if (_controller.IsUserStillAlive())
-                Console.WriteLine("You won the game!");
+                Console.WriteLine("{0} won the game!", _controller.PlayerName());
             else
-                Console.WriteLine("You lost. Better luck next time");
+                Console.WriteLine("{0} lost. Better luck next time", _controller.PlayerName());
 
 
             Console.WriteLine("Press any key to return to main menu");

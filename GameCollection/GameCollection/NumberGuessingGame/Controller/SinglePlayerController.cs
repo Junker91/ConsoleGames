@@ -35,6 +35,10 @@ namespace GameCollection.NumberGuessingGame.Controller {
                 return false;
         }
 
+        public string PlayerName() {
+            return _player.Name;
+        }
+
         public int PlayerLives() {
             return _player.Lives;
         }

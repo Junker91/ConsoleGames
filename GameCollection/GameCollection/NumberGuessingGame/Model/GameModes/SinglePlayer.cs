@@ -33,11 +33,9 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
 
         public int GuessPosition(int guess) {
             if (guess > _correctValueDic[_playerDic[1].Name]) {
-                _playerDic[1].Lives -= 1;
                 return 1;
             } 
             else if (guess < _correctValueDic[_playerDic[1].Name]) {
-                _playerDic[1].Lives -= 1;
                 return -1;
             } 
             else {

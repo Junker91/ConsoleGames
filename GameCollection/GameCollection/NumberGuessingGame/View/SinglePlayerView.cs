@@ -61,8 +61,11 @@ namespace GameCollection.NumberGuessingGame.View {
 
                 if (_controller.UserGuessPosition(guess) == 1)
                     Console.WriteLine("Guess must be smaller than {0}", guess);
+                    _controller.PunishPlayer();
+
                 else if (_controller.UserGuessPosition(guess) == -1)
                     Console.WriteLine("Guess must be higher than {0}", guess);
+                    _controller.PunishPlayer();
 
                 Console.WriteLine("{1} have {0} lives left", _controller.PlayerLives(), _controller.PlayerName());
 

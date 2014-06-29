@@ -10,6 +10,10 @@ namespace GameCollection.NumberGuessingGame.Model {
         protected int _score;
         protected int _lives;
 
+        public Player(string name, int lives) {
+            this.Name = name;
+            this.Lives = lives;
+        }
 
         public virtual string Name {
             get {

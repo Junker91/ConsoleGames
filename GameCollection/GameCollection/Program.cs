@@ -24,12 +24,12 @@ namespace GameCollection {
                  */
                 switch (input) {
                     case 1:
-                        new NumberGuessingGame.Main();
+                        new NumberGuessingGame.View.MainMenu();
                         break;
                     case 0:
                         break;
                     default:
-                        Console.WriteLine("Invalid input. Press any key to try again.");
+                        Console.WriteLine("Invalid input, press any key to try again.");
                         Console.ReadKey();
                         break;
                 }

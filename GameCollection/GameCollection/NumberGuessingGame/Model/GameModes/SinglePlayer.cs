@@ -14,16 +14,16 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
         /// <param name="player">The name of the player </param>
         /// <param name="minimunValue">The minimum value of the interval that should be guessed in</param>
         /// <param name="maximunValue">The maximum value of the interval that should be guessed in</param>
-        public SinglePlayer(List<Player> player, int minimunValue, int maximunValue) {
+        public SinglePlayer(Player player, int minimunValue, int maximunValue) {
             this._minimunValue = minimunValue;
             this._maximunValue = maximunValue;
-            base._playerDic.Add(player[0].Name, player[0]);
+            base._playerDic.Add(player.Name, player);
 
             Random randNum = new Random();
             //Adds a value (the number that should be found) in the dictionary on the players space. Becomes more useful in multiplayer game.
-            base._correctValueDic.Add(player[0].Name, randNum.Next(_minimunValue, _maximunValue));
+            base._correctValueDic.Add(player.Name, randNum.Next(_minimunValue, _maximunValue));
 
-            StartGame(player[0]);
+            StartGame(player);
         }
 
         //Method that plays out the singleplayer game. For each try it removes a life, until there are no more lives.

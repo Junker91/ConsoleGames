@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumberGuessingGame\Controller\SinglePlayerController.cs" />
-    <Compile Include="NumberGuessingGame\Main.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\GameMode.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\SinglePlayer.cs" />
     <Compile Include="NumberGuessingGame\Model\Player.cs" />

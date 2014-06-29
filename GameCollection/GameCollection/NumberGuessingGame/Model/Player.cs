@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GameCollection.NumberGuessingGame.Model {
-    class Player {
+    public class Player {
         protected string _name;
         protected int _score;
         protected int _lives;
@@ -24,23 +24,24 @@ namespace GameCollection.NumberGuessingGame.Model {
             }
         }
 
-        public int Score { 
+        public int Score {
             get {
                 return _score;
-            } 
+            }
 
             set {
                 _score = value;
-            } 
+            }
         }
 
-        public int Lives { 
-            get { 
+        public int Lives {
+            get {
                 return _lives;
-            } 
+            }
 
             set {
                 _lives = value;
             }
+        }
     }
 }

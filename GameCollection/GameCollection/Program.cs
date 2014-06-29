@@ -11,12 +11,11 @@ namespace GameCollection {
             int input;
 
             do {
+                Console.Clear();
                 Console.WriteLine("\nWelcome to the ConsoleGameCollection!");
-                Console.WriteLine("\t-By Junker and Thuesen\n");
+                Console.WriteLine("\t-By [Insert Awsome Company Name].\n");
                 Console.WriteLine("Chosse an option below:");
-                Console.WriteLine("1. SomeGame");
-                Console.WriteLine("2. SomeOtherGame");
-                Console.WriteLine("3. SomeOtherThirdGame");
+                Console.WriteLine("1. Number Guessing Game");
                 Console.WriteLine("0. Exit\n");
                 Console.Write("input > ");
                 input = int.Parse(Console.ReadLine());
@@ -26,6 +25,8 @@ namespace GameCollection {
                 switch (input) {
                     case 1:
                         new NumberGuessingGame.Main();
+                        break;
+                    case 0:
                         break;
                     default:
                         Console.WriteLine("Invalid input. Press any key to try again.");

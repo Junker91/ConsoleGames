@@ -45,57 +45,8 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
             }   
         }
 
-
-
-
-
-
-
-
-        //Method that plays out the singleplayer game. For each try it removes a life, until there are no more lives.
-        public void StartGame(Player gamer) {
-            bool gameWon = false;
-            int input;
-            Player player = base._playerDic[gamer.Name];
-
-
-            int correctValue = base._correctValueDic[gamer.Name];
-
-            Console.WriteLine("Welcome to the guessing game!");
-            Console.WriteLine("You have {0} tries to find the right number between {1} and {2}", player.Lives, _maximunValue, _maximunValue);
-
-            //Keeps running until the player either wins or loses the game
-            do{
-                Console.WriteLine("Take a guess");
-                input = int.Parse(Console.ReadLine());
-
-                if (input < correctValue) {
-                    Console.WriteLine("The value must be higher!");
-                    player.Lives -= 1;
-                }
-                else if (input > correctValue) {
-                    Console.WriteLine("The value must be smaller");
-                    player.Lives -= 1;
-                }
-                else {
-                    gameWon = true;
-                }
-
-
-
-            } while (!gameWon && player.Lives > 0);
-
-            if(player.Lives <= 0){
-                Console.WriteLine("You did not find the number within the timeline. The number was {0}, better luck next time\n" +
-                                  "Press any key to continue.", correctValue);
-            }
-            else {
-                Console.WriteLine("Congratulations you found the number {0} and won the game!\n" +
-                                  "Press any key to continue", correctValue);
-            }
-            Console.ReadKey();
-                
-
+        public string Interval() {
+            return "from " + _minimunValue + " to " + _maximunValue;
         }
     }
 }

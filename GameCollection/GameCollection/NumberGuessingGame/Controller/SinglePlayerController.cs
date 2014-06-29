@@ -28,11 +28,19 @@ namespace GameCollection.NumberGuessingGame.Controller {
             return _singleplayer.GuessPosition(guess);
         }
 
-        public bool UserIsStillAlive() {
+        public bool IsUserStillAlive() {
             if (_player.Lives != 0)
                 return true;
             else
                 return false;
+        }
+
+        public int PlayerLives() {
+            return _player.Lives;
+        }
+
+        public string UserInterval() {
+            return _singleplayer.Interval();
         }
     }
 }

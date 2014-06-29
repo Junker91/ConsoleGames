@@ -28,6 +28,12 @@ namespace GameCollection.NumberGuessingGame.View {
                     case 1:
                         new SinglePlayerView();
                         break;
+                    case 2:
+                        new MultiplayerView();
+                        break;
+                    case 3:
+                        new VersusAIView();
+                        break;
                     case 0:
                         break;
                     default:

@@ -9,10 +9,12 @@ namespace GameCollection.NumberGuessingGame.Model {
         protected string _name;
         protected int _score;
         protected int _lives;
+        protected int _id;
 
-        public Player(string name, int lives) {
+        public Player(string name, int lives, int id) {
             this.Name = name;
             this.Lives = lives;
+            this.ID = id;
         }
 
         public virtual string Name {
@@ -46,6 +48,11 @@ namespace GameCollection.NumberGuessingGame.Model {
             set {
                 _lives = value;
             }
+        }
+
+        public int ID {
+            get { return _id; }
+            protected set { _id = value; }
         }
     }
 }

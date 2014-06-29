@@ -17,14 +17,40 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
         public SinglePlayer(Player player, int minimunValue, int maximunValue) {
             this._minimunValue = minimunValue;
             this._maximunValue = maximunValue;
-            base._playerDic.Add(player.Name, player);
-
-            Random randNum = new Random();
+            base._playerDic.Add(player.ID, player);
+            
             //Adds a value (the number that should be found) in the dictionary on the players space. Becomes more useful in multiplayer game.
+            Random randNum = new Random();
             base._correctValueDic.Add(player.Name, randNum.Next(_minimunValue, _maximunValue));
-
-            StartGame(player);
         }
+
+        public bool IsGuessValid(int guess) {
+            if (guess >= _minimunValue && guess <= _maximunValue)
+                return true;
+            else
+                return false;
+        }
+
+        public int GuessPosition(int guess) {
+            if (guess > _correctValueDic[_playerDic[1].Name]) {
+                _playerDic[1].Lives -= 1;
+                return 1;
+            } 
+            else if (guess < _correctValueDic[_playerDic[1].Name]) {
+                _playerDic[1].Lives -= 1;
+                return -1;
+            } 
+            else {
+                return 0;
+            }   
+        }
+
+
+
+
+
+
+
 
         //Method that plays out the singleplayer game. For each try it removes a life, until there are no more lives.
         public void StartGame(Player gamer) {

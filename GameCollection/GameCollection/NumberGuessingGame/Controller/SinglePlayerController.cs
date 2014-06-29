@@ -13,19 +13,22 @@ namespace GameCollection.NumberGuessingGame.Controller {
         private SinglePlayer _singleplayer;
 
         public void CreatePlayer(string name, int lives) {
-            _player = new Player(name, lives);
+            _player = new Player(name, lives, 1);
         }
 
         public void CreateGame(int lowestNumber, int highestNumer) {
             _singleplayer = new SinglePlayer(_player, lowestNumber, highestNumer);
         }
 
-        public bool UserGuess(int guess) {
-            _singleplayer.Guess(guess);
+        public bool UserGuessValid(int guess) {
+            return _singleplayer.IsGuessValid(guess);
         }
 
         public bool UserIsStillAlive() {
-            _singleplayer.PlayerIsAlive();
+            if (_player.Lives != 0)
+                return true;
+            else
+                return false;
         }
     }
 }

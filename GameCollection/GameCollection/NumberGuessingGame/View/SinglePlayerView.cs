@@ -47,7 +47,7 @@ namespace GameCollection.NumberGuessingGame.View {
         private void SinglePlayerGame() {
             int guess;
 
-            Console.WriteLine("Let the game begin!!. {2} have {0} lives to guess the number and an interval {1} ", _controller.PlayerLives(), _controller.UserInterval()), _controller.PlayerName();
+            Console.WriteLine("Let the game begin!!. {2} have {0} lives to guess the number and an interval {1} ", _controller.PlayerLives(), _controller.UserInterval(), _controller.PlayerName());
 
             do {
                 Console.WriteLine("Take a guess:");
@@ -64,7 +64,7 @@ namespace GameCollection.NumberGuessingGame.View {
                 else if (_controller.UserGuessPosition(guess) == -1)
                     Console.WriteLine("Guess must be higher than {0}", guess);
 
-                Console.WriteLine("{1} have {0} lives left", _controller.PlayerLives()), _controller.PlayerName();
+                Console.WriteLine("{1} have {0} lives left", _controller.PlayerLives(), _controller.PlayerName());
 
             } while (_controller.IsUserStillAlive() && _controller.UserGuessPosition(guess) != 0);
 

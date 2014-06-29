@@ -24,6 +24,10 @@ namespace GameCollection.NumberGuessingGame.Controller {
             return _singleplayer.IsGuessValid(guess);
         }
 
+        public int UserGuessPosition(int guess) {
+            return _singleplayer.GuessPosition(guess);
+        }
+
         public bool UserIsStillAlive() {
             if (_player.Lives != 0)
                 return true;

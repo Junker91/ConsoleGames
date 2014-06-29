@@ -8,7 +8,7 @@ namespace GameCollection.NumberGuessingGame.View {
     class MainMenu {
 
         public MainMenu() {
-
+            Menu();
         }
 
         public void Menu() {
@@ -26,12 +26,15 @@ namespace GameCollection.NumberGuessingGame.View {
 
                 switch (input) {
                     case 1:
-
+                        new SinglePlayerView();
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input, press any key to try again. ");
+                        Console.ReadKey();
+                        break;
                 }
-
-
-
-
             } while (input != 0);
         }
     }

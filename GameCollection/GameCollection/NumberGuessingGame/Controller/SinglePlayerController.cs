@@ -21,11 +21,11 @@ namespace GameCollection.NumberGuessingGame.Controller {
         }
 
         public bool UserGuessValid(int guess) {
-            return _singleplayer.IsGuessValid(guess);
+            return _singleplayer.IsGuessValid(_player, guess);
         }
 
         public int UserGuessPosition(int guess) {
-            return _singleplayer.GuessPosition(guess);
+            return _singleplayer.GuessPosition(_player, guess);
         }
 
         public bool IsUserStillAlive() {
@@ -48,7 +48,7 @@ namespace GameCollection.NumberGuessingGame.Controller {
         }
 
         public string UserInterval() {
-            return _singleplayer.Interval();
+            return _singleplayer.IntervalToString(_player);
         }
     }
 }

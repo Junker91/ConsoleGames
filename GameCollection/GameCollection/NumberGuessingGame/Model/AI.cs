@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GameCollection.NumberGuessingGame.Model {
-    public class Player : Gamer{
+    class AI : Gamer{
 
-        protected int _lives;
+        public AI(int id) : this("AIOpponent", id) { }
 
-        public Player(string name, int lives, int id) {
+        public AI(string name, int id) {
             this.Name = name;
-            this.Lives = lives;
             this.ID = id;
         }
 
@@ -20,10 +19,10 @@ namespace GameCollection.NumberGuessingGame.Model {
                 return _name;
             }
             protected set {
-                if (string.IsNullOrEmpty(value))
-                    throw new ArgumentNullException("name string is null or empty");
-                else
+                if(!string.IsNullOrEmpty(value))
                     _name = value;
+                else
+                    throw new ArgumentNullException("name string is null or empty");
             }
         }
 
@@ -31,25 +30,18 @@ namespace GameCollection.NumberGuessingGame.Model {
             get {
                 return _score;
             }
-
             set {
                 _score = value;
             }
         }
 
-        public int Lives {
-            get {
-                return _lives;
-            }
-
-            set {
-                _lives = value;
-            }
-        }
-
         public override int ID {
-            get { return _id; }
-            protected set { _id = value; }
+            get {
+                return _id;
+            }
+            protected set {
+                _id = value;
+            }
         }
     }
 }

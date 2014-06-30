@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumberGuessingGame\Controller\SinglePlayerController.cs" />
+    <Compile Include="NumberGuessingGame\Model\AI.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\GameMode.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\SinglePlayer.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\VersusAI.cs" />
+    <Compile Include="NumberGuessingGame\Model\Gamer.cs" />
     <Compile Include="NumberGuessingGame\Model\Player.cs" />
     <Compile Include="NumberGuessingGame\View\MainMenu.cs" />
     <Compile Include="NumberGuessingGame\View\MultiplayerView.cs" />

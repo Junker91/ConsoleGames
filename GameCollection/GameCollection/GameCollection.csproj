@@ -44,6 +44,7 @@
     <Compile Include="NumberGuessingGame\Controller\MultiplayerController.cs" />
     <Compile Include="NumberGuessingGame\Controller\SinglePlayerController.cs" />
     <Compile Include="NumberGuessingGame\Controller\VersusAIController.cs" />
+    <Compile Include="NumberGuessingGame\Model\AI.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\GameMode.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\Multiplayer.cs" />
     <Compile Include="NumberGuessingGame\Model\GameModes\SinglePlayer.cs" />

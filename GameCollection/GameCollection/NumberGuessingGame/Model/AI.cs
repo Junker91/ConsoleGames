@@ -7,23 +7,12 @@ using System.Threading.Tasks;
 namespace GameCollection.NumberGuessingGame.Model {
     class AI : Gamer{
 
-        public AI(int id) : this("AIOpponent", id) { }
-
-        public AI(string name, int id) {
-            this.Name = name;
+        public AI(int id) {
             this.ID = id;
         }
 
-        public override string Name {
-            get {
-                return _name;
-            }
-            protected set {
-                if(!string.IsNullOrEmpty(value))
-                    _name = value;
-                else
-                    throw new ArgumentNullException("name string is null or empty");
-            }
+        public string Name {
+            get { return "AI"; }
         }
 
         public override int Score {

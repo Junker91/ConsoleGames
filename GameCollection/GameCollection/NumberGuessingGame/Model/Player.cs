@@ -15,7 +15,7 @@ namespace GameCollection.NumberGuessingGame.Model {
             this.ID = id;
         }
 
-        public override string Name {
+        public string Name {
             get {
                 return _name;
             }

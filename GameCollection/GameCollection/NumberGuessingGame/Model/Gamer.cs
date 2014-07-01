@@ -11,7 +11,6 @@ namespace GameCollection.NumberGuessingGame.Model {
         protected int _score;
         protected int _id;
 
-        public abstract string Name { get; protected set; }
         public abstract int Score { get; set; }
         public abstract int ID { get; protected set; }
 

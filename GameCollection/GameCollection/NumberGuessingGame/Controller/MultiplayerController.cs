@@ -41,7 +41,11 @@ namespace GameCollection.NumberGuessingGame.Controller {
             return _multiplayer.GuessPosition(_playerList[user], guess);
         }
 
-        public string PlayerName(int user) {
+        public int GetPlayerNumber() {
+            return _playerList.Count;
+        }
+
+        public string GetPlayerName(int user) {
             return _playerList[user].Name;
         }
 

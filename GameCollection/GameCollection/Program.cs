@@ -17,7 +17,7 @@ namespace GameCollection {
                 Console.WriteLine("Chosse an option below:");
                 Console.WriteLine("1. Number Guessing Game");
                 Console.WriteLine("0. Exit\n");
-                Console.Write("input > ");
+                Console.Write("Input > ");
                 input = int.Parse(Console.ReadLine());
 
                 /* As more games is created, just add them to the switch.

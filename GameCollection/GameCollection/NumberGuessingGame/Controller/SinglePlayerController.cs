@@ -47,6 +47,10 @@ namespace GameCollection.NumberGuessingGame.Controller {
             return _player.Lives;
         }
 
+        public int GetCorrectValue() {
+            return _singleplayer.GetCorrectUserValue(_player);
+        }
+
         public string UserInterval() {
             return _singleplayer.IntervalToString(_player);
         }

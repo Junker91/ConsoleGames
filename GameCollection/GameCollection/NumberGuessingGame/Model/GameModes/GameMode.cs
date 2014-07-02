@@ -26,6 +26,10 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
                 return 0;
         }
 
+        public int GetCorrectUserValue(Player player) {
+            return _correctValueDic[player.ID];
+        }
+
         public string IntervalToString(Player player) {
             int low = _playerIntervalDic[player.ID].lowValue;
             int high = _playerIntervalDic[player.ID].highValue;

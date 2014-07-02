@@ -24,20 +24,25 @@ namespace GameCollection.NumberGuessingGame.View {
             int lowestNumber = 0, highestNumber = 0, lives = 0;
             bool checkLow, checkHigh, checkLives;
 
-            Console.WriteLine("Welcome to single player mode");
+            Console.Clear();
+            Console.WriteLine("\nWelcome to the Number Guessing Game!\n" + "\t-Singleplayer Mode\n");
             Console.WriteLine("First you have to choose a name, amount of lives and interval for the game");
-            Console.WriteLine("Enter the name of your caracter: ");
+            Console.WriteLine("Enter the name of your caracter.\n");
+            Console.Write("Name input > ");
             name = Console.ReadLine();
             
             do{
-                Console.WriteLine("Enter the lowest and higehst possible number for your game seperated by enter: ");
-                checkLow = TryCatch(ref lowestNumber);
-                checkHigh = TryCatch(ref highestNumber);
+                Console.WriteLine("\nEnter the lowest and higehst possible number for your game seperated by enter.");
+                Console.Write("Lowest input > "); 
+                checkLow = TryCatchIntInput(ref lowestNumber);
+                Console.Write("Highest input > ");
+                checkHigh = TryCatchIntInput(ref highestNumber);
             }while(!checkLow || !checkHigh);  
 
             do{
-                Console.WriteLine("Enter the amount of tries you want to have");
-                checkLives = TryCatch(ref lives);
+                Console.WriteLine("\nEnter the amount of tries you want to have");
+                Console.Write("Input > ");
+                checkLives = TryCatchIntInput(ref lives);
             }while(!checkLives);
 
             _controller.CreatePlayer(name, lives);
@@ -47,11 +52,13 @@ namespace GameCollection.NumberGuessingGame.View {
         private void SinglePlayerGame() {
             int guess;
 
-            Console.WriteLine("Let the game begin!!. {2} have {0} lives to guess the number and an interval {1} ", _controller.PlayerLives(), _controller.UserInterval(), _controller.PlayerName());
+            Console.Clear();
+            Console.WriteLine("\n\tLet the game begin!!\n" + "\n{2} have {0} lives to guess the number" + 
+                "\nThe interval is {1}\n", _controller.PlayerLives(), _controller.UserInterval(), _controller.PlayerName());
 
             do {
                 Console.WriteLine("Take a guess:");
-                guess = int.Parse(Console.ReadLine());
+                guess = int.Parse(Console.ReadLine()); //Error here!
 
                 do{
                     if (!_controller.UserGuessValid(guess))
@@ -61,11 +68,12 @@ namespace GameCollection.NumberGuessingGame.View {
 
                 if(_controller.UserGuessPosition(guess) != 0) {
                     _controller.PunishPlayer();
+                    Console.Write("The number is ");
                     if (_controller.UserGuessPosition(guess) == 1)
-                        Console.WriteLine("Guess must be smaller than {0}", guess);
+                        Console.WriteLine("smaller than {0}", guess);
 
-                    else if (_controller.UserGuessPosition(guess) == -1)
-                        Console.WriteLine("Guess must be higher than {0}", guess);
+                    else
+                        Console.WriteLine("higher than {0}", guess);
 
                     Console.WriteLine("{1} have {0} lives left", _controller.PlayerLives(), _controller.PlayerName());
                 }
@@ -74,16 +82,16 @@ namespace GameCollection.NumberGuessingGame.View {
             } while (_controller.IsUserStillAlive() && _controller.UserGuessPosition(guess) != 0);
 
             if (_controller.IsUserStillAlive())
-                Console.WriteLine("{0} won the game!", _controller.PlayerName());
-            else
-                Console.WriteLine("{0} lost. Better luck next time", _controller.PlayerName());
-
-
-            Console.WriteLine("Press any key to return to main menu");
+                Console.WriteLine("\n{0} won the game! Congratulations!", _controller.PlayerName());
+            else {
+                Console.WriteLine("\n{0} lost. The correct number was {1}\nBetter luck next time", _controller.PlayerName(), _controller.GetCorrectValue());
+            }
+            
+            Console.WriteLine("Press Enter to return to the game menu");
             Console.ReadKey();
         }
 
-        private bool TryCatch(ref int number) {
+        private bool TryCatchIntInput(ref int number) {
             try {
                 number = int.Parse(Console.ReadLine());
             }

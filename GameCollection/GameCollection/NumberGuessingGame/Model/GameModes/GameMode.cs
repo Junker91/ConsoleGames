@@ -17,7 +17,7 @@ namespace GameCollection.NumberGuessingGame.Model.GameModes {
                 return false;
         }
 
-        public int GuessPosition(Player player, int guess) {
+        public int GuessPosition(Gamer player, int guess) {
             if (guess > _correctValueDic[player.ID])
                 return 1;
             else if (guess < _correctValueDic[player.ID])
